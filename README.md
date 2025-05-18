@@ -1,4 +1,4 @@
-# EasyBankCVS_to_ProSadoCVS
+# EasyBankCSV
 This Python script converts a CSV extracted form Austrian / Österreich the Easy Bank App to a ProSado or FreeFinance readable CSV. 
 It will most likey also work with the BAWAG Bank
 
@@ -11,9 +11,17 @@ It will most likey also work with the BAWAG Bank
 ./easybank_csv_add_header.py input.csv header.csv
 ./easybank_csv_filter.py header.csv output.csv
 ```
+### ProSaldo
 1. Open your 'ProSaldo' account
 1. select 'Bank & Buchen'
 1. select 'CSV-/TXT-Import'
+1. Upload your `output.csv`
+1. Establish a correct and useful relation.
+
+### FreeFinance
+1. Open your 'Bankverbindung' account
+1. select 'CSV import'
+1. Bank/Vorlage wählen: "Standard - Kontoauszug"
 1. Upload your `output.csv`
 1. Establish a correct and useful relation.
 
@@ -32,16 +40,16 @@ The script should extract then some information from the column Beschreibung.
 
 1. IBAN and company
    If there is more than one IBAN in the string, the last appearance should be used.
-   The company name can be found after the IBAN if there is a space or pipe character, and it ends with the entry or another pipe character. The two coloumns should be named "Partner Kontonr./IBAN" and "Partnername"
+   The company name can be found after the IBAN if there is a space or pipe character, and it ends with the entry or another pipe character.
 
 There are some bank IBANs as an example.
 LU89751000135102200E
 DE79590500000020025855
 AT113293900005511726
 
-
-2. prefix and bcode 
-The bcode is composed of to upper case letters followed by a / and nine digits . The prefix is empty or the string in the Text column before the bcode. The two coloumns should be named "Partner Kontonr./IBAN" and "Partnername"
+2. prefix and bcode
+   The bcode is composed of to upper case letters followed by a / and nine digits . The prefix is empty or the string in the Text column before the bcode.
 
 The output file should be the input, but each row has the new column values attached.
+
 ```
