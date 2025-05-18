@@ -63,14 +63,16 @@ The default arguemtns should be input.csv and header.csv
 The code was generated using the LLM ChatGPT with the following prompt:
 ```
 I would like to read a csv file with a header row encoded in  utf-8 and generate a new file.
+I would like to read a csv file with a header row encoded in  utf-8 and generate a new file.
 The input file name and the output filename are arguments to the script.
 The script should extract then some information from the column description.
 
-1. IBAN and company
-   The IBAN is found in the string of the column called description. 
+1. BIC , IBAN and company
+   The BIC and IBAN is found in the string of the column called description but the BIC can be empty.
+   A valid BIC is either 8 or 11 characters long and starts after a pipe character composed of letters and digits.
    If there is more than one IBAN in the string, the last appearance should be used.
-   The company name can be found after the IBAN if there is a space or pipe character, and it ends with the entry or another pipe character. 
-   The IBAN and company can be emtpy
+   The company name can be found after the IBAN if there is a space or pipe character, and it ends with the entry or another pipe character.
+   The BIC and company can be emtpy
 
 There are some bank IBANs as an example.
 LU89751000135102200E
@@ -79,18 +81,18 @@ AT113293900005511726
 
 2. prefix and bcode
    The bcode is found in the string of the column called description.
-   The bcode is composed of to upper case letters followed by a / and nine digits. 
+   The bcode is composed of to upper case letters followed by a / and nine digits.
    The prefix and bcode can be emtpy
 
-
-The output file should be the input, but each row has the new column values attached. 
-The default arguemtns should be header.csv and filtered.csv
+The output file should be the input, but each row has the new column values attached.
+The default arguments should be header.csv and filtered.csv
+Please define the Regular expressions as global strings
 
 ```
 ### freefinance_csv
 The code was generated using the LLM ChatGPT with the following prompt:
 ```
-I would like to create a Python script that reads a CSV file encoded in UTF-8 with a header row and generates a new output file.
+Now I like to create a Python script that reads a CSV file encoded in UTF-8 with a header row and generates a new output file.
 The input and output filenames should be passed as arguments to the script.
 
 The output file should contain only specific columns, and some of them should be renamed as follows:
@@ -100,10 +102,12 @@ The output file should contain only specific columns, and some of them should be
     valuta → "Valutadatum"
     amount → "Betrag"
     currency → "Währung"
+    bic → "Auftraggeber BLZ/BIC"
     iban → "Auftraggeber Kontonr./IBAN"
     company → "Auftraggeber"
     prefix → "prefix"
     bcode → "Verwendungszweck1"
+
 
 All other columns should be ignored in the output.
 The default arguemtns should be filtered.csv and freefinance.csv
