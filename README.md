@@ -22,17 +22,17 @@ It will most likey also work with the BAWAG Bank
 The code was generated using the LLM ChatGPT with the following prompt:
 ```
 Can you help me to create a simple python script. It should process a CSV file with  semicolons as a delimiter and output a new CSV file. The input file is ISO-8859-1 encoded, while the output should be UTF-8. The input file name and the output filename are arguments to the script. The input CSV has no header row.
-The output file must have a header row. With the following titles Konto, Text, Buchungsdatum, Valutadatum, Betrag and Währung
+The output file must have a header row. With the following titles Konto, Beschreibung, Buchungsdatum, Valutadatum, Betrag and Währung
 ```
 ### easybank_filter 
 The code was generated using the LLM ChatGPT with the following prompt:
 ```
-CNow I would like to read a csv file with a header row encoded in  utf-8 and generate a new file.The input file name and the output filename are arguments to the script.
-The script should extract then some information.
+I would like to read a csv file with a header row encoded in  utf-8 and generate a new file.The input file name and the output filename are arguments to the script.
+The script should extract then some information from the column Beschreibung.
 
 1. IBAN and company
-   The IBAN is found in the string of the column called Text. If there is more than one IBAN in the string, the last appearance should be used.
-   The company name can be found after the IBAN if there is a space or pipe character, and it ends with the entry or another pipe character.
+   If there is more than one IBAN in the string, the last appearance should be used.
+   The company name can be found after the IBAN if there is a space or pipe character, and it ends with the entry or another pipe character. The two coloumns should be named "Partner Kontonr./IBAN" and "Partnername"
 
 There are some bank IBANs as an example.
 LU89751000135102200E
@@ -41,8 +41,7 @@ AT113293900005511726
 
 
 2. prefix and bcode 
-The bcode is found in the string of the column called Text. 
-The bcode is composed of to upper case letters followed by a / and nine digits . The prefix is empty or the string in the Text column before the bcode.
+The bcode is composed of to upper case letters followed by a / and nine digits . The prefix is empty or the string in the Text column before the bcode. The two coloumns should be named "Partner Kontonr./IBAN" and "Partnername"
 
 The output file should be the input, but each row has the new column values attached.
 ```
