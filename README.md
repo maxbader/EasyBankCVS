@@ -53,3 +53,9 @@ AT113293900005511726
 The output file should be the input, but each row has the new column values attached.
 
 ```
+
+# Setup
+The python enviroment can be crated by crating an enviroment with
+```
+python3 -m venv ./eb-env
+```

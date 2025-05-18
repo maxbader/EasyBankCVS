@@ -3,7 +3,7 @@ import sys
 
 def convert_csv(input_file, output_file):
     # Define the header row
-    header = ["Konto", "Beschreibung", "Buchungsdatum", "Valutadatum", "Betrag", "Währung"]
+    header = ["my_iban", "description", "booking date", "valuta date", "amount", "currency"]
 
     with open(input_file, mode='r', encoding='ISO-8859-1', newline='') as infile, \
          open(output_file, mode='w', encoding='utf-8', newline='') as outfile:
