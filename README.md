@@ -106,7 +106,7 @@ The output file should contain only specific columns, and some of them should be
     iban → "Auftraggeber Kontonr./IBAN"
     company → "Auftraggeber"
     prefix → "prefix"
-    bcode → "Verwendungszweck1"
+    bcode → "Zusatztext"
 
 
 All other columns should be ignored in the output.

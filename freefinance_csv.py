@@ -13,7 +13,7 @@ COLUMN_MAPPING = {
     'iban': 'Auftraggeber Kontonr./IBAN',
     'company': 'Auftraggeber',
     'prefix': 'prefix',
-    'bcode': 'Verwendungszweck1',
+    'bcode': 'Zusatztext',
 }
 
 def filter_and_rename_csv(input_file='filtered.csv', output_file='freefinance.csv'):
